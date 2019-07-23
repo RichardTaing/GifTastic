@@ -21,7 +21,7 @@ $(document).ready(function() {
 
       gifButton.attr("ID", "gifArrayBtns");
       gifButton.attr("class", "btn btn-primary btn-space");
-      gifButton.attr("data-button", topics[i].trim());
+      gifButton.attr("data-food", topics[i].trim());
       gifButton.text(topics[i]);
 
       $("#btns").append(gifButton);
@@ -37,7 +37,7 @@ $(document).ready(function() {
     for (var i = 0; i < favs.length; i++) {
       var favsImg = $("<img>");
       favsImg.attr("src", favs[i]);
-      favsImg.attr("style", "width: 150px; height: 150px"); // appends giphy to this size
+      favsImg.attr("style", "width: 150px; height: 150px"); // appends giphy to this size in favorites
       favsImg.addClass("btn-space");
 
       $("#gif-favorites").append(favsImg);
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
   // first build the ajax query based on current button clicked
   $(document).on("click", "#gifArrayBtns", function() {
-    var searchQuery = $(this).attr("data-button");
+    var searchQuery = $(this).attr("data-food");
     var apiKEY = "api_key=6mtnETzCO7QOxr1jLW6GpafrjE6NjLYL";
     var queryURL =
       "https://api.giphy.com/v1/gifs/search?" +
@@ -96,16 +96,16 @@ $(document).ready(function() {
         gifImage.addClass("card-img-top gif");
 
         // favourites
-        var heartSpan = $("<i>");
-        heartSpan.addClass("fa fa-heart-o");
-        heartSpan.attr("aria-hidden", "true");
-        heartSpan.attr("span-image", gifAnimate);
+        var favourites = $("<i>");
+        favourites.addClass("fa fa-heart heart fa-2x");
+        favourites.attr("aria-hidden", "true");
+        favourites.attr("span-image", gifAnimate);
 
         gifDiv.append(gifImage);
         gifDiv.append(gifDivBody);
         gifDivBody.append(title);
         gifDivBody.append(rating);
-        gifDivBody.append(heartSpan);
+        gifDivBody.append(favourites);
 
         $("#gif-body").prepend(gifDiv);
       }

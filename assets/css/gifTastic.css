@@ -1,3 +1,17 @@
+body {
+  background-image: url(https://media.giphy.com/media/3o6Zt1CbqzTd36KXYY/giphy.gif);
+  /* repeat-y 100% 100% fixed;
+  /* height: 100%; */
+  width: 100%;
+  /* background-size: cover; */
+  /* no-repeat center fixed;
+  -webkit-backdrop-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  /* height: 100vh;
+  padding: 0;
+  margin: 0; */
+}
 h1 {
   text-align: center;
   color: white;
@@ -10,7 +24,7 @@ h1 {
 h2.favorites {
   text-align: center;
   color: white;
-  text-shadow: 3px 3px 3px #2f7ef7;
+  text-shadow: 3px 3px 3px #bf1025;
 }
 .jumbotron {
   background-image: url(../images/chiang-mai-large.jpg);
@@ -29,6 +43,6 @@ h2.favorites {
 .card-body {
   padding: 0.5rem;
 }
-.fa-heart-o {
-  color: red;
+.fa-2x {
+  color: #bf1025;
 }
