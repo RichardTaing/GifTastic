@@ -3,14 +3,14 @@ h1 {
   color: white;
   text-shadow: 3px 3px 3px #2f7ef7;
 }
+.btn-space {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
 h2.favorites {
   text-align: center;
   color: white;
   text-shadow: 3px 3px 3px #2f7ef7;
-}
-.btn-space {
-  margin-right: 5px;
-  margin-bottom: 5px;
 }
 .jumbotron {
   background-image: url(../images/chiang-mai-large.jpg);
@@ -28,4 +28,7 @@ h2.favorites {
 }
 .card-body {
   padding: 0.5rem;
+}
+.fa-heart-o {
+  color: red;
 }

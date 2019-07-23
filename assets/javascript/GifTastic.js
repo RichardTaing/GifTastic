@@ -1,14 +1,15 @@
 $(document).ready(function() {
   //initialize the variables
   var topics = [
-    // Travel Destinatons
-    "Siem Reap",
-    "Bangkok",
-    "Osaka",
-    "Fiji",
-    "Vietnam",
-    "Philippines",
-    "Seoul"
+    "Burgers",
+    "Tacos",
+    "Salami",
+    "Fries",
+    "Pizza",
+    "Noodles",
+    "Rice",
+    "Donuts",
+    "Gelato"
   ];
 
   //empty the buttons and populate buttons
@@ -20,7 +21,7 @@ $(document).ready(function() {
 
       gifButton.attr("ID", "gifArrayBtns");
       gifButton.attr("class", "btn btn-primary btn-space");
-      gifButton.attr("data-button", topics[i]);
+      gifButton.attr("data-button", topics[i].trim());
       gifButton.text(topics[i]);
 
       $("#btns").append(gifButton);
@@ -54,14 +55,14 @@ $(document).ready(function() {
   // first build the ajax query based on current button clicked
   $(document).on("click", "#gifArrayBtns", function() {
     var searchQuery = $(this).attr("data-button");
-    var apiKEY = "api_key=0hG8MRmYR9lPS2VVyhHFQza79r0aGbVB";
+    var apiKEY = "api_key=6mtnETzCO7QOxr1jLW6GpafrjE6NjLYL";
     var queryURL =
       "https://api.giphy.com/v1/gifs/search?" +
       apiKEY +
       "&q=" +
       searchQuery +
       "&limit=10"; // limited to 10 GIPHYs
-
+    console.log(queryURL);
     // make the ajax query and stores the response
     $.ajax({
       url: queryURL,
@@ -85,13 +86,6 @@ $(document).ready(function() {
         var rating = $("<p>").text("Rating: " + gifRating.toUpperCase());
         rating.attr("class", "card-body");
 
-        var originalDownload = gifArray[i].images.original.url;
-        var downloadBtn = $("<a>").text("Download");
-        downloadBtn.attr("href", originalDownload);
-        downloadBtn.attr("download", "giphy.gif");
-        downloadBtn.addClass("btn btn-primary btn-space");
-
-        //
         var gifAnimate = gifArray[i].images.fixed_height.url;
         var gifStill = gifArray[i].images.fixed_height_still.url;
         var gifImage = $("<img>");
@@ -103,7 +97,7 @@ $(document).ready(function() {
 
         // favourites
         var heartSpan = $("<i>");
-        heartSpan.addClass("fa fa-heart");
+        heartSpan.addClass("fa fa-heart-o");
         heartSpan.attr("aria-hidden", "true");
         heartSpan.attr("span-image", gifAnimate);
 
@@ -111,7 +105,6 @@ $(document).ready(function() {
         gifDiv.append(gifDivBody);
         gifDivBody.append(title);
         gifDivBody.append(rating);
-        gifDivBody.append(downloadBtn);
         gifDivBody.append(heartSpan);
 
         $("#gif-body").prepend(gifDiv);
