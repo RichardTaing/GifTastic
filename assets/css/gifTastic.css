@@ -13,9 +13,9 @@ h1 {
   text-align: center;
   color: white;
   text-shadow: 4px 4px 4px #2f7ef7;
-  font-size: 70px;
-  animation-duration: 10s;
+  font-size: 80px;
   animation-name: font;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 }
 
