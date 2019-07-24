@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //initialize the variables
+  // Initialize the variables topic
   var topics = [
     "Burgers",
     "Tacos",
@@ -12,7 +12,7 @@ $(document).ready(function() {
     "Gelato"
   ];
 
-  //empty the buttons and populate buttons
+  // Empty the buttons and populate buttons
   function createBtns() {
     $("#btns").empty();
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   createBtns();
 
-  // empty array to store favourites
+  // Empty array to store favourites
   function renderFavs(favs) {
     $("#gif-favorites").empty();
 
@@ -44,12 +44,20 @@ $(document).ready(function() {
     }
   }
 
+  // Create a choice for click or press
   // create on clicks to push new topic & button
   $("#add-keyword").click(function() {
     var keywordPush = $("#keyword-term").val();
     topics.push(keywordPush);
     createBtns();
     $("#keyword-term").val("");
+  });
+
+  // create keyup to push new topic & button
+  $("#keyword-term").keyup(function(event) {
+    if (event.keyCode === 13) {
+      $("#add-keyword").click();
+    }
   });
 
   // first build the ajax query based on current button clicked
@@ -81,6 +89,7 @@ $(document).ready(function() {
         var gifTitle = gifArray[i].title;
         var gifTitleShort = gifTitle.slice(0, 15);
 
+        // Displays the Ratings in div card-body
         var title = $("<strong>").text(gifTitleShort.toUpperCase() + "...");
         title.attr("class", "card-title");
         var rating = $("<p>").text("Rating: " + gifRating.toUpperCase());
@@ -95,7 +104,7 @@ $(document).ready(function() {
         gifImage.attr("data-state", "still");
         gifImage.addClass("card-img-top gif");
 
-        // favourites
+        // Create favourites
         var favourites = $("<i>");
         favourites.addClass("fa fa-heart heart fa-2x");
         favourites.attr("aria-hidden", "true");
