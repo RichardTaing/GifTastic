@@ -18,6 +18,7 @@ $(document).ready(function() {
 
     for (var i = 0; i < topics.length; i++) {
       var gifButton = $("<button>");
+      var close = $("<div>");
 
       gifButton.attr("ID", "gifArrayBtns");
       gifButton.attr("class", "btn btn-primary btn-space");
