@@ -18,8 +18,6 @@ $(document).ready(function() {
 
     for (var i = 0; i < topics.length; i++) {
       var gifButton = $("<button>");
-      var close = $("<div>");
-
       gifButton.attr("ID", "gifArrayBtns");
       gifButton.attr("class", "btn btn-primary btn-space");
       gifButton.attr("data-food", topics[i].trim());
@@ -40,8 +38,6 @@ $(document).ready(function() {
       favsImg.attr("src", favs[i]);
       favsImg.attr("style", "width: 150px; height: 150px"); // appends giphy to this size in favorites
       favsImg.addClass("btn-space");
-
-      $("#gif-favorites").append(favsImg);
     }
   }
 
